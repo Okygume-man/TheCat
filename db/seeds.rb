@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+User.destroy_all
+Item.destroy_all
+
+20.times do |i|
+	title = Faker::JapaneseMedia::OnePiece.character
+	description = Faker::JapaneseMedia::OnePiece.quote
+	price = rand(1..1000)
+	Item.create(title: title, description: description, price: price)
+end
+puts '20 item créés'
