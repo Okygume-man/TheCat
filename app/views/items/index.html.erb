@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="header-image text-center">
+      <h1 class= 'header-title'>Welcome on Chatchat-land</h1>
+    </div>
+    <div class="container">
+      <div class="row d-flex align-items-stretch">
+        <% @items.each do |item| %>
+          <div class="col-sm-6 col-md-4 py-4">
+            <div class="card w-100 mb-4 box-shadow h-100 rounded-lg">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= link_to item.title, item_path(item.id) %>    
+
+                </h5>
+                
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
