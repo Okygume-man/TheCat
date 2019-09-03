@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'bebas_neuebold';
+    src: font-url('bebasneue-bold-webfont.woff2') format('woff2'),
+         font-url('bebasneue-bold-webfont.woff') format('woff'),
+         font-url('bebasneue-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: fonts-url('bebasneue-regular-webfont.woff2') format('woff2'),
+         fonts-url('bebasneue-regular-webfont.woff') format('woff'),
+         fonts-url('bebasneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.title {
+	padding-top: 50px;	
+}
+
+.header-title {
+	font-family: bebas_neuebold;
+	font-size: calc(64px + 3vw);
+}
+
+.card-body {
+	background-color: #2B3E50;
+	border-radius: 15px;
+}
+
+body {
+	background-image: url(hero.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+
+h2 {
+	font-family: bebas_neuebold;
+	color: #FF95E7;
+	text-shadow: 1.8px 0 0 #fff;
+}
+
+.brand {
+	color: #FF95E7;
+	text-shadow: 3px 0 0 #fff;
+}
+
+.kin {
+	margin-bottom: 15px;
+}
+
+.bg-light {
+	background-color: #FF95E7;
+}
+
+a {
+	font-family: bebas_neuebold;
+}
+
+.card a {
+	color: #2B3E50;
+	text-shadow: 1px 0 0 white;
+}
+
+.card a:hover {
+	color: #FF95E7;
+}
+
+.card-body {
+	background-image: url(zero.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
