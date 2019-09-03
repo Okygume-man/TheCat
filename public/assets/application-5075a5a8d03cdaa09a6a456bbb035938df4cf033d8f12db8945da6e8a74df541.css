@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'bebas_neuebold';
+    src: font-url('bebasneue-bold-webfont.woff2') format('woff2'),
+         font-url('bebasneue-bold-webfont.woff') format('woff'),
+         font-url('bebasneue-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: fonts-url('bebasneue-regular-webfont.woff2') format('woff2'),
+         fonts-url('bebasneue-regular-webfont.woff') format('woff'),
+         fonts-url('bebasneue-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.title {
+	padding-top: 50px;	
+}
+
+.header-title {
+	font-family: bebas_neuebold;
+	font-size: calc(64px + 3vw);
+}
+
+.card-body {
+	background-color: #2B3E50;
+	border-radius: 15px;
+}
+
+body {
+	background-image: url(hero.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+
+h2 {
+	font-family: bebas_neuebold;
+	color: #FF95E7;
+	text-shadow: 1.8px 0 0 #fff;
+}
+
+.brand {
+	color: #FF95E7;
+	text-shadow: 3px 0 0 #fff;
+}
+
+.kin {
+	margin-bottom: 15px;
+}
+
+.bg-light {
+	background-color: #FF95E7;
+}
+
+a {
+	font-family: bebas_neuebold;
+}
+
+.card a {
+	color: #2B3E50;
+	text-shadow: 1px 0 0 white;
+}
+
+.card a:hover {
+	color: #FF95E7;
+}
+
+.card-body {
+	background-image: url(zero.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+@font-face {
+  font-family: 'bebas_neuebold';
+  src: url(/assets/bebasneue-bold-webfont-5196e925e6dd74f0224dddd42886ac32924f01560340d4728465ee7cb0e92bc7.woff2) format("woff2"), url(/assets/bebasneue-bold-webfont-d3512689d4615ab8e2895da045d2e0bd2afcfc55d57635380804dcd0df88192b.woff) format("woff"), url(/fonts/bebasneue-bold-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bebas_neueregular';
+  src: fonts-url("bebasneue-regular-webfont.woff2") format("woff2"), fonts-url("bebasneue-regular-webfont.woff") format("woff"), fonts-url("bebasneue-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 24, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.title {
+  padding-top: 50px;
+}
+
+/* line 28, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.header-title {
+  font-family: bebas_neuebold;
+  font-size: calc(64px + 3vw);
+}
+
+/* line 33, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.card-body {
+  background-color: #2B3E50;
+  border-radius: 15px;
+}
+
+/* line 38, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+body {
+  background-image: none;
+}
+
+/* line 42, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.container h1 {
+  font-family: bebas_neuebold;
+  font-size: calc(72px + 2vw);
+  text-shadow: 4px 0 0 #FF95E7;
+}
+
+/* line 48, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+h2 {
+  font-family: bebas_neuebold;
+  color: #FF95E7;
+  text-shadow: 1.8px 0 0 #fff;
+}
+
+/* line 54, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.brand {
+  color: #FF95E7;
+  text-shadow: 3px 0 0 #fff;
+}
+
+/* line 59, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.kin {
+  margin-bottom: 15px;
+}
+
+/* line 63, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.bg-light {
+  background-color: #FF95E7;
+}
+
+/* line 67, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+a {
+  font-family: bebas_neuebold;
+}
+
+/* line 71, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.card a {
+  color: #FFA9F5;
+}
+
+/* line 75, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.card a:hover {
+  color: #FF95E7;
+}
+
+/* line 79, /Users/maxencebeloud/Desktop/Chatland/TheCat/app/assets/stylesheets/items.scss */
+.card-body {
+  background-image: none;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

@@ -10989,3 +10989,14 @@ Processing by ItemsController#show as HTML
 Completed 200 OK in 69ms (Views: 44.2ms | ActiveRecord: 14.1ms)
 
 
+Started GET "/" for ::1 at 2019-09-03 15:11:29 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.3ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (738.6ms)
+Completed 200 OK in 851ms (Views: 820.9ms | ActiveRecord: 11.4ms)
+
+
