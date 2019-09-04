@@ -6,15 +6,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-      @item = Item.find(params[:id])
   end
 
   def edit
-    @item =Item.find(params[:id])
   end
 
   def update
-    @item =Item.find(params[:id])
     @item.update(item_params)
     redirect_to @item
   end
@@ -26,10 +23,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.save
-    redirect_to @item
-  end
-
+    @item
   def destroy
     Item.find(params[:id]).destroy
     redirect_to root_url
