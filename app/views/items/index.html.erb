@@ -21,6 +21,13 @@
         <p></p>
         </div>
       </div>
+       <div class="col d-flex justify-content-end">
+        <% if current_user != nil %>
+          <%= link_to "Ajouter un article", new_item_path, class: "btn btn-info", id: "btn-addItem" %>
+          <br/>
+        <% end %>
+      </div>
+
       <div class="row d-flex align-items-stretch">
         <% @items.each do |item| %>
           <div class="kin col-sm-12 col-md-6 col-lg-3">
@@ -36,7 +43,6 @@
         <% end %>
       </div>
     </div>
-
       </div>
     </div>
   </body>
