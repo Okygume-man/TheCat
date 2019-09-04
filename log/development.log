@@ -11000,3 +11000,555 @@ Processing by ItemsController#index as HTML
 Completed 200 OK in 851ms (Views: 820.9ms | ActiveRecord: 11.4ms)
 
 
+Started GET "/items/20" for ::1 at 2019-09-03 15:38:01 +0200
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (499.5ms)
+Completed 200 OK in 650ms (Views: 603.2ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/" for ::1 at 2019-09-03 15:38:04 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 75ms (Views: 60.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-09-03 16:00:19 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (1479.7ms)
+Completed 500 Internal Server Error in 2199ms (ActiveRecord: 12.8ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"carts", :id=>nil}, missing required keys: [:id]:
+  app/views/layouts/application.html.erb:50:in `_app_views_layouts_application_html_erb___792178996638942101_70340312256560'
+
+Started POST "/__better_errors/fbdbd48a2a39dfff/variables" for ::1 at 2019-09-03 16:00:22 +0200
+Started GET "/" for ::1 at 2019-09-03 16:00:42 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/layouts/application.html.erb:50:in `_app_views_layouts_application_html_erb___792178996638942101_70340283596340'
+
+Started POST "/__better_errors/c4496898e17b6a28/variables" for ::1 at 2019-09-03 16:00:42 +0200
+Started GET "/" for ::1 at 2019-09-03 16:01:49 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 89ms (Views: 81.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-09-03 16:01:57 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (165.7ms)
+Completed 200 OK in 229ms (Views: 206.6ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users" for ::1 at 2019-09-03 16:02:05 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cfC2l4o5Ynh5wX020t78fYzTnMQKd3NfRLg6NFaPzvy8z5PcHurw5F+70wzwR2P+vKPJPUFJHbiWSMuhJ6XHJw==", "user"=>{"email"=>"coco@hotmail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coco@hotmail.fr"], ["LIMIT", 1]]
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (66.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "coco@hotmail.fr"], ["encrypted_password", "$2a$11$1R/.ZoU3UIRSe7W99pC4q.K2cBrZGuVN.XH81cewFTVfLY5ldV6ju"], ["created_at", "2019-09-03 14:02:05.399926"], ["updated_at", "2019-09-03 14:02:05.399926"]]
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 285ms (ActiveRecord: 68.6ms)
+
+
+Started GET "/" for ::1 at 2019-09-03 16:02:05 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 54ms (Views: 49.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/items/4" for ::1 at 2019-09-03 16:02:17 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 69ms (Views: 57.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/items/4" for ::1 at 2019-09-03 16:04:38 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 97ms (Views: 59.2ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/items/4" for ::1 at 2019-09-03 16:08:37 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 1.3ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___792178996638942101_70340288658120'
+
+Started POST "/__better_errors/aa2583fea8d0c33a/variables" for ::1 at 2019-09-03 16:08:38 +0200
+Started GET "/items/4" for ::1 at 2019-09-03 16:10:45 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Started GET "/items/4" for ::1 at 2019-09-03 16:12:54 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (5.5ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 110008ms (ActiveRecord: 3.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___792178996638942101_70340289246620'
+
+Started POST "/__better_errors/fe16a4b9a9cea69f/variables" for ::1 at 2019-09-03 16:14:44 +0200
+Started GET "/items/4" for ::1 at 2019-09-03 16:21:29 +0200
+Completed 500 Internal Server Error in 667211ms (ActiveRecord: 1.8ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:36:in `_app_views_layouts_application_html_erb___792178996638942101_70340357443860'
+
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 13.9ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb___792178996638942101_70340342918360'
+
+Started GET "/items/4" for ::1 at 2019-09-03 16:22:01 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:7
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (509.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 704ms (ActiveRecord: 31.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__183948497451358698_70167910882980'
+
+Started POST "/__better_errors/081fe7bacca49980/variables" for ::1 at 2019-09-03 16:22:02 +0200
+Started GET "/" for ::1 at 2019-09-03 16:22:16 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 1.9ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__183948497451358698_70167936275880'
+
+Started POST "/__better_errors/aaa9b3ed329ed72d/variables" for ::1 at 2019-09-03 16:22:16 +0200
+Started GET "/" for ::1 at 2019-09-03 16:22:45 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (23.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 145ms (Views: 138.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-09-03 16:22:49 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/Z91QHFfRdhV5V1pKiZ5UqEpjpg9+60GjWV7U2XBCohFDKhzRcyRcw9dFVUkljTTHwB03JHgLfQAvYn9qWBktg=="}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 216ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2019-09-03 16:22:49 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 62ms (Views: 56.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-09-03 16:22:57 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 114ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-09-03 16:23:06 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jdngWJlpLTZL6XhbGHRRCvSUmiyIiGIVxvSp2m1wggktbms+h6Y1JigK1uAxAwFgUpy0uFAAh/zHBfchTw8V2w==", "user"=>{"email"=>"coco@hotmail.fr", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "coco@hotmail.fr"], ["LIMIT", 1]]
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 228ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-09-03 16:23:06 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (7.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mCart Load (17.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lololjlj@hotmail.fr"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "lololjlj@hotmail.fr"], ["encrypted_password", "$2a$11$mvaxUanBO0L/az4lQR.JiOLgaqHd4jkslKVIIHdMzcK5dLBAvXp2C"], ["created_at", "2019-09-03 14:27:30.170233"], ["updated_at", "2019-09-03 14:27:30.170233"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2019-09-03 16:33:40 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (526.0ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 700ms (ActiveRecord: 20.4ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__2870499692569717200_70107717805720'
+
+Started POST "/__better_errors/01352f90fa5ffb09/variables" for ::1 at 2019-09-03 16:33:41 +0200
+Started GET "/" for ::1 at 2019-09-03 16:37:42 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.6ms)
+
+
+
+SyntaxError - syntax error, unexpected ',', expecting keyword_then or ';' or '\n'
+...) : cart_path(current_user.id), class: 'btn btn-info');@outp...
+...                              ^:
+  app/views/layouts/application.html.erb:35:in `'
+
+Started POST "/__better_errors/f6313d8c4a0cdff8/variables" for ::1 at 2019-09-03 16:37:42 +0200
+Started GET "/" for ::1 at 2019-09-03 16:39:31 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (15.1ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 1.7ms)
+
+
+
+NoMethodError - undefined method `cart_id' for #<User:0x00007f8673b5b228>
+Did you mean?  cart:
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__2870499692569717200_70107719651600'
+
+Started POST "/__better_errors/12f50b38b7a53392/variables" for ::1 at 2019-09-03 16:39:32 +0200
+Started GET "/" for ::1 at 2019-09-03 16:40:40 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:35
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 3.7ms)
+
+
+
+ArgumentError - wrong number of arguments (given 3, expected 1..2):
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__2870499692569717200_70107742363060'
+
+Started POST "/__better_errors/36a0e69aa45796b9/variables" for ::1 at 2019-09-03 16:40:41 +0200
+Started GET "/" for ::1 at 2019-09-03 16:41:10 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (14.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:35
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.9ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/layouts/application.html.erb:35:in `_app_views_layouts_application_html_erb__2870499692569717200_70107688251160'
+
+Started POST "/__better_errors/85da396a877f13b6/variables" for ::1 at 2019-09-03 16:41:11 +0200
+Started GET "/" for ::1 at 2019-09-03 16:42:52 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.8ms)
+
+
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+...r.cart_id == nil  new_cart_path(current_user.id) else cart_p...
+...                  ^~~~~~~~~~~~~
+/Users/maxencebeloud/Desktop/Chatland/TheCat/app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_else, expecting ')'
+...cart_path(current_user.id) else cart_path(current_user.id) e...
+...                           ^~~~
+/Users/maxencebeloud/Desktop/Chatland/TheCat/app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+... cart_path(current_user.id) end, class: 'btn btn-info');@out...
+...                            ^~~:
+  app/views/layouts/application.html.erb:35:in `'
+
+Started POST "/__better_errors/e0946c5757e6e8f8/variables" for ::1 at 2019-09-03 16:42:52 +0200
+Started GET "/" for ::1 at 2019-09-03 16:43:02 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (15.7ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.8ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_else, expecting ':'
+...cart_path(current_user.id) else cart_path(current_user.id) e...
+...                           ^~~~
+/Users/maxencebeloud/Desktop/Chatland/TheCat/app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+... cart_path(current_user.id) end, class: 'btn btn-info');@out...
+...                            ^~~:
+  app/views/layouts/application.html.erb:35:in `'
+
+Started POST "/__better_errors/b2a1c62bb8ec9fa9/variables" for ::1 at 2019-09-03 16:43:02 +0200
+Started GET "/" for ::1 at 2019-09-03 16:43:29 +0200
+Processing by ItemsController#index as HTML
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:25
+  Rendered items/index.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.7ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_else, expecting ':'
+...cart_path(current_user.id) else cart_path(current_user.id)en...
+...                           ^~~~
+/Users/maxencebeloud/Desktop/Chatland/TheCat/app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_end, expecting ')'
+...e cart_path(current_user.id)end, class: 'btn btn-info');@out...
+...                            ^~~:
+  app/views/layouts/application.html.erb:35:in `'
+
+Started POST "/__better_errors/d3d3d31fd6859e1f/variables" for ::1 at 2019-09-03 16:43:29 +0200
+Started GET "/users/sign_in" for ::1 at 2019-09-03 16:51:19 +0200
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/maxencebeloud/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 130ms (ActiveRecord: 1.1ms)
+
+
+Started POST "/__better_errors/d3d3d31fd6859e1f/variables" for ::1 at 2019-09-03 16:51:19 +0200
+Started POST "/__better_errors/d3d3d31fd6859e1f/variables" for ::1 at 2019-09-03 16:51:20 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCartItems (20190903102902)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (260.7ms)[0m  [1m[35mDROP TABLE "cart_items"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190903102902"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCarts (20190902143556)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE "carts"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190902143556"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateItems (20190902092734)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "items"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190902092734"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190902090347)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mDROP INDEX  "index_users_on_reset_password_token"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mDROP INDEX  "index_users_on_email"[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190902090347"]]
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8013673018746994515)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
