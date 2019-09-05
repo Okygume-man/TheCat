@@ -12,7 +12,15 @@
         <div class="card-body">
           <p class="card-text"><strong>Description : </strong><br/><%= @item.description %></p>
           <p class="card-text"><strong>Prix : </strong><%= @item.price %> €</p>
-          <button class="btn btn-info d-flex justify-content-end">Ajouter au panier</button>
+          <div class="d-flex justify-content-end">
+            <% if current_user != nil %>
+             <% if current_user.id == @item.user_id %>
+             <%= link_to 'Modifier', edit_item_path(@item), class: "btn btn-secondary", id: "btn-action" %>
+             <%= link_to 'Supprimer', @item, method: :delete, data: { confirm: "êtes-vous sûr?" }, class: "btn btn-danger", id: "btn-action" %>
+            <% end %>
+            <% end %>
+            <%= button_to "Ajouter au panier", cart_items_path(item_id: @item), class: "btn btn-info" %>
+          </div>
       </div>
     </div>
   </div>
