@@ -1,13 +1,14 @@
 class CartItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart_item, only: [ :show, :edit, :update, :destroy]
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create] 
 
   def index
     @cart_items = CartItem.all
   end
 
   def show
+    @cart_items = CartItem.all
   end
 
   def new
@@ -16,8 +17,8 @@ class CartItemsController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    @cart_item = @cart.add_item(cart_item_params)
-    redirect_to @cart_item.cart
+    @cart_item = @cart.add_item(item)
+    redirect_to cart_path(@cart)
   end
 
   def edit
@@ -27,16 +28,20 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(session[:cart_id])
+    @cart_item.destroy
+    redirect_to cart_path(@cart)
   end
 
   private
 
   def set_cart_item
-  end
-
-  def set_cart
+    @cart_item = CartItem.find(params[:id])
   end
 
   def cart_item_params
+    params.require(:cart_item).permit(:item_id, :cart_id)
   end
+
+
 end
