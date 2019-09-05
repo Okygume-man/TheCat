@@ -1,4 +1,8 @@
 <h1>Mon panier</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
 
-<% binding.pry %>
+<% itemList = @cart_items.select{|cart_item| cart_item.cart_id == current_user.cart.id} %>
+<% itemList.each do |cart_item| %>
+
+<p> Nom du produit: <%= Item.find_by(id: cart_item.item_id).title %>, prix: <%= Item.find_by(id: cart_item.item_id).price %>, quantité: <%= CartItem.find_by(cart_id: current_user.cart.id, item_id: cart_item.item_id).quantity %></p>
+<% end %>
+

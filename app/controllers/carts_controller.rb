@@ -6,6 +6,8 @@ class CartsController < ApplicationController
   end
 
   def show
+    @cart_items = CartItem.all
+    @items = Item.all
   end
 
   def new

@@ -17,7 +17,8 @@ class CartItemsController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    @cart_item = @cart.add_item(item)
+    @cart_item_params = @cart.add_item(item)
+    @cart_item = @cart.create_or_select_Cart_Item(@cart_item_params)
     redirect_to cart_path(@cart)
   end
 
