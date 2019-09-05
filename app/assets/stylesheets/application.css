@@ -18,4 +18,39 @@ input[type=text], input[type=password], input[type=number], input[type=email], i
 	border-radius: 5px;
 }
 
+.panier {
+	background-color: pink;
+	border-radius: 15px;
+	padding-top: 15px;
+}
+
+.itemInCart em {
+	color: black;
+	font-family: bebas_neuebold;
+	font-size: 30px;
+	margin-top: -15px;
+	text-shadow: none;
+	
+}
+.itemInCart p {
+	display: inline-block;
+	color: white;
+	font-family: bebas_neuebold;
+	font-size: 25px;
+	margin-top: -15px;
+	text-shadow: 1px 0 0 black;
+}
+
+.itemInCart h4 {
+	color: #2B3E50;
+	font-family: bebas_neuebold;
+	font-size: 30px;
+}
+
+.container h3 {
+	color: #2B3E50;
+	font-family: bebas_neuebold;
+	font-size: 50px;
+	text-shadow: 3px 0 0 white;
+}
 
