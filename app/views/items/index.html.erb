@@ -37,7 +37,9 @@
                   <%= link_to item.title, item_path(item.id) %>
                 </h5>
               </div>
-              <button class="btn btn-secondary">Ajouter au panier</button>
+              <div class="d-flex justify-content-center">
+                <%= button_to "Ajouter au panier", cart_items_path(item_id: item), class: "btn btn-secondary" %>
+              </div>
             </div>
           </div>
         <% end %>
