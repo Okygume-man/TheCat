@@ -22144,3 +22144,727 @@ Migrating to CreateJoinItemOrders (20190904083603)
   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
 >>>>>>> master
+Started GET "/" for ::1 at 2019-09-05 12:09:08 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/8cf6a794b7953059/variables" for ::1 at 2019-09-05 12:09:09 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (58.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (373.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Chat_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (247.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Chat_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (1138.1ms)[0m  [1m[35mCREATE DATABASE "Chat_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (941.3ms)[0m  [1m[35mCREATE DATABASE "Chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (333.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Chat_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (235.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Chat_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (774.2ms)[0m  [1m[35mCREATE DATABASE "Chat_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (696.1ms)[0m  [1m[35mCREATE DATABASE "Chat_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:17
+  [1m[35m (17.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "cart_items" CASCADE[0m
+  ↳ db/schema.rb:19
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "cart_items" ("id" bigserial primary key, "cart_id" bigint, "item_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "quantity" integer DEFAULT 1)[0m
+  ↳ db/schema.rb:19
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE  INDEX  "index_cart_items_on_cart_id" ON "cart_items"  ("cart_id")[0m
+  ↳ db/schema.rb:19
+  [1m[35m (62.4ms)[0m  [1m[35mCREATE  INDEX  "index_cart_items_on_item_id" ON "cart_items"  ("item_id")[0m
+  ↳ db/schema.rb:19
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "carts" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (63.7ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (62.8ms)[0m  [1m[35mCREATE  INDEX  "index_carts_on_user_id" ON "carts"  ("user_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "items" CASCADE[0m
+  ↳ db/schema.rb:36
+  [1m[35m (153.2ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "description" text, "price" float, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "join_item_orders" CASCADE[0m
+  ↳ db/schema.rb:46
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE TABLE "join_item_orders" ("id" bigserial primary key, "item_id" bigint, "order_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:46
+  [1m[35m (84.3ms)[0m  [1m[35mCREATE  INDEX  "index_join_item_orders_on_item_id" ON "join_item_orders"  ("item_id")[0m
+  ↳ db/schema.rb:46
+  [1m[35m (64.1ms)[0m  [1m[35mCREATE  INDEX  "index_join_item_orders_on_order_id" ON "join_item_orders"  ("order_id")[0m
+  ↳ db/schema.rb:46
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:55
+  [1m[35m (75.8ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (106.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:62
+  [1m[35m (151.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (61.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (63.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (119.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:14
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:14
+  [1m[35m (6.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190904220404)[0m
+  ↳ db/schema.rb:14
+  [1m[35m (10.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190904083442),
+(20190904083603),
+(20190904195246),
+(20190904185835),
+(20190903102902),
+(20190902092734),
+(20190902143556),
+(20190902090347);
+
+[0m
+  ↳ db/schema.rb:14
+  [1m[35m (128.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-05 10:10:31.186349"], ["updated_at", "2019-09-05 10:10:31.186349"]]
+  ↳ db/schema.rb:14
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "cart_items" CASCADE[0m
+  ↳ db/schema.rb:19
+  [1m[35m (99.5ms)[0m  [1m[35mCREATE TABLE "cart_items" ("id" bigserial primary key, "cart_id" bigint, "item_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "quantity" integer DEFAULT 1)[0m
+  ↳ db/schema.rb:19
+  [1m[35m (61.6ms)[0m  [1m[35mCREATE  INDEX  "index_cart_items_on_cart_id" ON "cart_items"  ("cart_id")[0m
+  ↳ db/schema.rb:19
+  [1m[35m (74.3ms)[0m  [1m[35mCREATE  INDEX  "index_cart_items_on_item_id" ON "cart_items"  ("item_id")[0m
+  ↳ db/schema.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "carts" CASCADE[0m
+  ↳ db/schema.rb:29
+  [1m[35m (87.0ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (62.7ms)[0m  [1m[35mCREATE  INDEX  "index_carts_on_user_id" ON "carts"  ("user_id")[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "items" CASCADE[0m
+  ↳ db/schema.rb:36
+  [1m[35m (121.0ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "description" text, "price" float, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "join_item_orders" CASCADE[0m
+  ↳ db/schema.rb:46
+  [1m[35m (85.6ms)[0m  [1m[35mCREATE TABLE "join_item_orders" ("id" bigserial primary key, "item_id" bigint, "order_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:46
+  [1m[35m (75.0ms)[0m  [1m[35mCREATE  INDEX  "index_join_item_orders_on_item_id" ON "join_item_orders"  ("item_id")[0m
+  ↳ db/schema.rb:46
+  [1m[35m (74.1ms)[0m  [1m[35mCREATE  INDEX  "index_join_item_orders_on_order_id" ON "join_item_orders"  ("order_id")[0m
+  ↳ db/schema.rb:46
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "orders" CASCADE[0m
+  ↳ db/schema.rb:55
+  [1m[35m (86.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:55
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/schema.rb:55
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:62
+  [1m[35m (139.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying)[0m
+  ↳ db/schema.rb:62
+  [1m[35m (74.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/schema.rb:62
+  [1m[35m (174.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:14
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:14
+  [1m[35m (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190904220404)[0m
+  ↳ db/schema.rb:14
+  [1m[35m (10.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190904083442),
+(20190904083603),
+(20190904195246),
+(20190904185835),
+(20190903102902),
+(20190902092734),
+(20190902143556),
+(20190902090347);
+
+[0m
+  ↳ db/schema.rb:14
+  [1m[35m (131.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-05 10:10:32.787650"], ["updated_at", "2019-09-05 10:10:32.787650"]]
+  ↳ db/schema.rb:14
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:14
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-09-05 10:10:32.797191"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Perona"], ["description", "You can spill drinks on me, even spit on me. I'll just laugh about it. But If you dare to hurt my friends... I won't forgive you!"], ["price", 292.0], ["created_at", "2019-09-05 10:10:33.096475"], ["updated_at", "2019-09-05 10:10:33.096475"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (28.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Hakuba"], ["description", "If you want to protect something, do it right! Don't let them get their way anymore!"], ["price", 226.0], ["created_at", "2019-09-05 10:10:33.128982"], ["updated_at", "2019-09-05 10:10:33.128982"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Vinsmoke Sanji"], ["description", "When do you think people die? When they are shot through the heart by the bullet of a pistol? No. When they are ravaged by an incurable disease? No... It’s when they're forgotten!"], ["price", 719.0], ["created_at", "2019-09-05 10:10:33.140137"], ["updated_at", "2019-09-05 10:10:33.140137"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Buggy"], ["description", "I want to live!"], ["price", 880.0], ["created_at", "2019-09-05 10:10:33.151560"], ["updated_at", "2019-09-05 10:10:33.151560"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Dracule Mihawk"], ["description", "When do you think people die? When they are shot through the heart by the bullet of a pistol? No. When they are ravaged by an incurable disease? No... It’s when they're forgotten!"], ["price", 884.0], ["created_at", "2019-09-05 10:10:33.162581"], ["updated_at", "2019-09-05 10:10:33.162581"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Magellan"], ["description", "You can spill drinks on me, even spit on me. I'll just laugh about it. But If you dare to hurt my friends... I won't forgive you!"], ["price", 187.0], ["created_at", "2019-09-05 10:10:33.173649"], ["updated_at", "2019-09-05 10:10:33.173649"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Sadi"], ["description", "Food is a gift from god. Spices are a gift from the devil. It looks like it was a bit too spicy for you."], ["price", 631.0], ["created_at", "2019-09-05 10:10:33.184666"], ["updated_at", "2019-09-05 10:10:33.184666"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Capone Bege"], ["description", "I don't care now. I wanted to look like a human because I wanted friends. Now I want to be a monster who's helpful to Luffy!"], ["price", 87.0], ["created_at", "2019-09-05 10:10:33.195330"], ["updated_at", "2019-09-05 10:10:33.195330"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Blueno"], ["description", "The government says your existence is a crime, but no matter what kind of weapons you may hold, just being alive isn't a sin! There's no crime in living!"], ["price", 553.0], ["created_at", "2019-09-05 10:10:33.206706"], ["updated_at", "2019-09-05 10:10:33.206706"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bartholomew Kuma"], ["description", "Food is a gift from god. Spices are a gift from the devil. It looks like it was a bit too spicy for you."], ["price", 96.0], ["created_at", "2019-09-05 10:10:33.218007"], ["updated_at", "2019-09-05 10:10:33.218007"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Trafalgar D. Water Law"], ["description", "You can spill drinks on me, even spit on me. I'll just laugh about it. But If you dare to hurt my friends... I won't forgive you!"], ["price", 38.0], ["created_at", "2019-09-05 10:10:33.229098"], ["updated_at", "2019-09-05 10:10:33.229098"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Shirahoshi"], ["description", "When the world shoves you around, you just gotta stand up and shove back. It's not like somebody's gonna save you if you start babbling excuses."], ["price", 756.0], ["created_at", "2019-09-05 10:10:33.240148"], ["updated_at", "2019-09-05 10:10:33.240148"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Ryuma"], ["description", "ONE PIECE IS REAL!"], ["price", 463.0], ["created_at", "2019-09-05 10:10:33.251453"], ["updated_at", "2019-09-05 10:10:33.251453"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Nami"], ["description", "If you kill yourself, I'll kill you!"], ["price", 408.0], ["created_at", "2019-09-05 10:10:33.261459"], ["updated_at", "2019-09-05 10:10:33.261459"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rebecca"], ["description", "To true friendship, how long you've known each other means nothing."], ["price", 936.0], ["created_at", "2019-09-05 10:10:33.272629"], ["updated_at", "2019-09-05 10:10:33.272629"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Spandam"], ["description", "The royalty and nobles are behind the fire... Believe me... This town smells worse than Gray Terminal. It smells like rotten people! If I stay here... I'll never be free! I'm... ashamed to be born a noble!"], ["price", 842.0], ["created_at", "2019-09-05 10:10:33.283685"], ["updated_at", "2019-09-05 10:10:33.283685"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Scratchmen Apoo"], ["description", "Pirates are evil? The Marines are righteous?... Justice will prevail, you say? But of course it will! Whoever wins this war becomes justice!"], ["price", 991.0], ["created_at", "2019-09-05 10:10:33.294529"], ["updated_at", "2019-09-05 10:10:33.294529"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Kaku"], ["description", "To true friendship, how long you've known each other means nothing."], ["price", 481.0], ["created_at", "2019-09-05 10:10:33.305670"], ["updated_at", "2019-09-05 10:10:33.305670"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Lucy"], ["description", "Old man, everyone!! And you.. Luffy. Even though I've been good for nothing my whole life, even though I have the blood of a demon within me... You guys still loved me! Thank you so much!!"], ["price", 840.0], ["created_at", "2019-09-05 10:10:33.317076"], ["updated_at", "2019-09-05 10:10:33.317076"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Shanks"], ["description", "Miracles only happen to those who never give up."], ["price", 383.0], ["created_at", "2019-09-05 10:10:33.328779"], ["updated_at", "2019-09-05 10:10:33.328779"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+Started GET "/" for ::1 at 2019-09-05 12:11:19 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.9ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (615.6ms)
+Completed 500 Internal Server Error in 664ms (ActiveRecord: 14.2ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_else, expecting ':'
+...cart_path(current_user.id) else cart_path(current_user.id)en...
+...                           ^~~~
+/home/celine/Bureau/chat/TheCat/app/views/layouts/application.html.erb:38: syntax error, unexpected keyword_end, expecting ')'
+...e cart_path(current_user.id)end, class: 'btn btn-info');@out...
+...                            ^~~:
+  app/views/layouts/application.html.erb:38:in `'
+
+Started POST "/__better_errors/ed3305e1c60bdd8d/variables" for ::1 at 2019-09-05 12:11:20 +0200
+Started GET "/" for ::1 at 2019-09-05 12:12:19 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 102ms (Views: 95.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-09-05 12:12:26 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (235.3ms)
+Completed 200 OK in 299ms (Views: 275.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users" for ::1 at 2019-09-05 12:12:43 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cy3NpsaM/cLi9udOZH5orinhZAD2UcUODIeMNPflXfX1Bm+SD2I5RBbZxB8BJFTnSJ9A0NkX7/OR7yizKYmJtg==", "user"=>{"name"=>"yoyo", "email"=>"jaja@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jaja@mail.com"], ["LIMIT", 1]]
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jaja@mail.com"], ["encrypted_password", "$2a$11$QENK3Jel/s80NMvI2h4aQevfZpxCymJMgfcUJeYjMK36Tu1bdIF1W"], ["created_at", "2019-09-05 10:12:43.540547"], ["updated_at", "2019-09-05 10:12:43.540547"], ["name", "yoyo"]]
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/celine/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 320ms (ActiveRecord: 19.7ms)
+
+
+Started GET "/" for ::1 at 2019-09-05 12:12:43 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/concerns/current_cart.rb:9
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:9
+  [1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2019-09-05 10:12:43.634114"], ["updated_at", "2019-09-05 10:12:43.634114"]]
+  ↳ app/models/concerns/current_cart.rb:9
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/concerns/current_cart.rb:9
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 122ms (Views: 50.5ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2019-09-05 12:12:47 +0200
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:36
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCartItem Load (1.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items"[0m
+  ↳ app/views/carts/show.html.erb:3
+  Rendered carts/show.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:25
+Completed 200 OK in 56ms (Views: 43.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2019-09-05 12:12:48 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 74ms (Views: 67.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/items/20" for ::1 at 2019-09-05 12:12:51 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 53ms (Views: 41.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/cart_items?item_id=20" for ::1 at 2019-09-05 12:12:52 +0200
+Processing by CartItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Wlgy/bsRCYVZtU40pbr9fxp/3fYq14MMUvCipuSKMuKlHhXNCV2Gj7y0xDq9azTqL5XNkIEsIsCp8razVUG5/w==", "item_id"=>"20"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/cart_items_controller.rb:19
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:8
+  [1m[36mCACHE CartItem Load (0.0ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:20
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:20
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:20
+  [1m[36mCartItem Create (0.7ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "item_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["cart_id", 1], ["item_id", 20], ["created_at", "2019-09-05 10:12:52.927528"], ["updated_at", "2019-09-05 10:12:52.927528"]]
+  ↳ app/models/cart.rb:20
+  [1m[35m (27.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:20
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 77ms (ActiveRecord: 36.5ms)
+
+
+Started GET "/carts/1" for ::1 at 2019-09-05 12:12:52 +0200
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:36
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items"[0m
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  Rendered carts/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 63ms (Views: 56.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2019-09-05 12:12:56 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 59ms (Views: 52.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/items/20" for ::1 at 2019-09-05 12:12:58 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 70ms (Views: 63.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/cart_items?item_id=20" for ::1 at 2019-09-05 12:13:00 +0200
+Processing by CartItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"lMPW38Cv/qzZHVUlkSvCHxYkO2WvtYVHilJADHXyJW5rhfHvcuNxpjwc3yuJ+guKI84rAwROJItxUFQZxDmucw==", "item_id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/cart_items_controller.rb:19
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:8
+  [1m[36mCACHE CartItem Load (0.0ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:19
+  [1m[36mCACHE CartItem Load (0.1ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/cart.rb:23
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:23
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/models/cart.rb:23
+  [1m[36mCartItem Update (0.4ms)[0m  [1m[33mUPDATE "cart_items" SET "quantity" = $1, "updated_at" = $2 WHERE "cart_items"."id" = $3[0m  [["quantity", 2], ["updated_at", "2019-09-05 10:13:00.324786"], ["id", 1]]
+  ↳ app/models/cart.rb:23
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/cart.rb:23
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 53ms (ActiveRecord: 33.8ms)
+
+
+Started GET "/carts/1" for ::1 at 2019-09-05 12:13:00 +0200
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:36
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items"[0m
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCACHE Item Load (0.1ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  Rendered carts/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 59ms (Views: 52.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2019-09-05 12:13:02 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (1.0ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 53ms (Views: 46.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/items/new" for ::1 at 2019-09-05 12:13:04 +0200
+Processing by ItemsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/items" for ::1 at 2019-09-05 12:13:16 +0200
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rhbi0t1lRl1S/ZsjQdLtkQpSuerlDvcykhuVQl9XX6DeoV0ItyZhP+pwHKYLu2NzD6vI8vZfSowV3RQzE9gNYw==", "item"=>{"title"=>"Gogobaby", "description"=>"lfdsklmfqklmdsfkml", "price"=>"1214.5"}, "commit"=>"Vendre votre produit"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/items_controller.rb:27
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gogobaby"], ["description", "lfdsklmfqklmdsfkml"], ["price", 1214.5], ["created_at", "2019-09-05 10:13:16.931536"], ["updated_at", "2019-09-05 10:13:16.931536"], ["user_id", 1]]
+  ↳ app/controllers/items_controller.rb:27
+  [1m[35m (50.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/items_controller.rb:27
+Redirected to http://localhost:3000/items/21
+Completed 302 Found in 67ms (ActiveRecord: 53.9ms)
+
+
+Started GET "/items/21" for ::1 at 2019-09-05 12:13:16 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 62ms (Views: 52.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/items/21/edit" for ::1 at 2019-09-05 12:13:19 +0200
+Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  Rendering items/edit.html.erb within layouts/application
+  Rendered items/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 59ms (Views: 50.2ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/items/21" for ::1 at 2019-09-05 12:13:23 +0200
+Processing by ItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c4OIvxSjzKdqJRyvH9cFJhGYcBg5Rac7pLIUjmHWkCUAC48qQcr4TumtER9m4uA/gy6ynPUBGtBzER8NkuS8+g==", "item"=>{"title"=>"Gogobaby", "description"=>"lfdsklmfqklmdsfkml", "price"=>"1214.5"}, "commit"=>"Vendre votre produit", "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/items_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/items_controller.rb:16
+Redirected to http://localhost:3000/items/21
+Completed 302 Found in 12ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/items/21" for ::1 at 2019-09-05 12:13:23 +0200
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (1.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 68ms (Views: 55.8ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/items/21" for ::1 at 2019-09-05 12:13:26 +0200
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"St1Z027QT9ik++JvSpfiMlU0aDeLIVoEh3uuUeHK0TAQGfzTeDOxnAIIAsaWzRw0AB+fceTffGE2S1XAWN/5Dg==", "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:39
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:32
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/items_controller.rb:32
+  [1m[36mCartItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cart_items" WHERE "cart_items"."item_id" = $1 LIMIT $2[0m  [["item_id", 21], ["LIMIT", 1]]
+  ↳ app/models/item.rb:14
+  [1m[36mItem Destroy (0.5ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/items_controller.rb:32
+  [1m[35m (26.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/items_controller.rb:32
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms (ActiveRecord: 29.9ms)
+
+
+Started GET "/" for ::1 at 2019-09-05 12:13:26 +0200
+Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/concerns/current_cart.rb:7
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" ORDER BY created_at desc[0m
+  ↳ app/views/items/index.html.erb:32
+  Rendered items/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 65ms (Views: 58.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/carts/1" for ::1 at 2019-09-05 12:13:33 +0200
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:36
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items"[0m
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:3
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT  "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = $1 AND "cart_items"."item_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["item_id", 20], ["LIMIT", 1]]
+  ↳ app/views/carts/show.html.erb:6
+  Rendered carts/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 2.6ms)
+
+

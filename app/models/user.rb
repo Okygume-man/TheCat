@@ -5,11 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    has_one :cart
-<<<<<<< HEAD
    has_many :items
    belongs_to :user, optional: true
-=======
-     has_many :orders
+   has_many :orders
 
->>>>>>> master
 end
